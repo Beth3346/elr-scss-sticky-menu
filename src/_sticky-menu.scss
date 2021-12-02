@@ -1,27 +1,31 @@
 // Sticky Menu
 
 @mixin elr-sticky-menu($config: ()) {
-    $config: extend((
-        position: 'top'
-    ), $config);
+  $config: extend(
+    (
+      position: "top",
+    ),
+    $config
+  );
 
-    $position: map-get($config, position);
+  $position: map-get($config, position);
 
-    @if ($position == 'top') {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        background-color: $dark-grey;
-        padding: 10px 10%;
-        margin-top: 0;
-        margin-bottom: 0;
+  @if ($position == "top") {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: $dark-grey;
+    padding: 10px 10%;
+    margin-top: 0;
+    margin-bottom: 0;
 
-        a { color: $white; }
-
-    } @elseif ($position == 'left') {
-        position: fixed;
-        top: 50px;
-        left: auto;
+    a {
+      color: $white;
     }
+  } @else if ($position == "left") {
+    position: fixed;
+    top: 50px;
+    left: auto;
+  }
 }
