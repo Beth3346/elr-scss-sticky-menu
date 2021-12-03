@@ -1,1 +1,34 @@
 @import "elr-scss-functions/src/main";
+@import "elr-scss-config/src/main";
+
+// Sticky Menu
+
+@mixin elr-sticky-menu($config: ()) {
+  $config: extend(
+    (
+      position: "top",
+    ),
+    $config
+  );
+
+  $position: map-get($config, position);
+
+  @if ($position == "top") {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: $dark-grey;
+    padding: 10px 10%;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    a {
+      color: $white;
+    }
+  } @else if ($position == "left") {
+    position: fixed;
+    top: 50px;
+    left: auto;
+  }
+}
